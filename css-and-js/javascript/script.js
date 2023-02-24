@@ -120,17 +120,16 @@ function otherShow() {
 
         var latLongTextarea = document.getElementById('lat_long_reroute');
 
-        latLongTextarea.addEventListener('blur', function() {
-                var input = latLongTextarea.value.trim();
-                var regex1 = /^(-?\d+(\.\d+)?), (-?\d+(\.\d+)?)$/;//with one space lat,[space]long
-                var regex2 = /^(-?\d+(\.\d+)?),(-?\d+(\.\d+)?)$/;//without space after lat,long
+                latLongTextarea.addEventListener('blur', function() {
+                    var input = latLongTextarea.value.trim();
+                    const regex = /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/;
 
-            if (!regex1.test(input)&&!regex2.test(input)) {
-                alert('Please enter a valid latitude,longitude value (e.g. 40.7128,-74.0060)');
-                latLongTextarea.value='';
-            }
+                    if (!regex.test(input)) {
+                        alert('Invalid latitude,longitude value (e.g. 40.7128,-74.0060)');
+                        latLongTextarea.value='';
+                    }
 
-        });
+                });
         //---------------------------------------------------------------------------------------
 
 
