@@ -123,77 +123,58 @@ Date:24-02-2023 -->
             </div>
 
 
-            <!-- Private Imageries Checkboxes -->
-            <div class="col-md-6 text-left">
-                <br><div><b><u> Private Imageries </u></b></br></div>
-                <form>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="PVT" name="BD" value="Fleet Edge Present" onclick="pvtShow()">
-                        <label class="form-check-label" for="PVT">
-                            <a><u>Private Imageries Used</u></a> </input>
-                        </label>
-                    </div>
-                    <div class="container" id="BDPVT" style="display:none;">
-                        <form id="BDPVT">
+        <!-- Public and Private OSM Imageries Checkboxes -->
+        <div class="col-md-6 text-left">
+            <br><div><b><u> Aerial Imageries </u></b></br></div>
+            <form>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="IMAGERY" name="BD" value="Aerial Imageries Used" onclick="imageryShow()">
+                    <label class="form-check-label" for="IMAGERY">
+                        <a><u>Aerial Imageries Used</u></a> </input>
+                    </label>
+                </div>
+                <div class="container" id="BDIMAGERY" style="display:none;">
+                    <form id="BDIMAGERY">
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="BDV4" name="BDV" value="Amazon Internal Imageries">
-                                <label class="form-check-label" for="BDV4">
-                                    <a> Amazon Internal Imageries </a> </input>
-                                </label>
-                            </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="BDV4" name="BDV" value="Amazon Internal Imageries">
+                            <label class="form-check-label" for="BDV4">
+                                <a> Amazon Internal Imageries </a> </input>
+                            </label>
+                        </div>
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="BDV5" name="BDV" value="Sanborn">
-                                <label class="form-check-label" for="BDV5">
-                                    <a> Sanborn </a> </input>
-                                </label>
-                            </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="BDV5" name="BDV" value="Sanborn">
+                            <label class="form-check-label" for="BDV5">
+                                <a> Sanborn </a> </input>
+                            </label>
+                        </div>
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="BDV6" name="BDV" value="Amazon GPS Traces">
-                                <label class="form-check-label" for="BDV6">
-                                    <a> Amazon GPS Traces </a> </input>
-                                </label>
-                            </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="BDV6" name="BDV" value="Bing Aerial Imagery">
+                            <label class="form-check-label" for="BDV7">
+                                <a> Bing Aerial Imagery </a> </input>
+                            </label>
+                        </div>
 
-                        </form>
-                    </div>
-                </form>
-            </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="BDV7" name="BDV" value="Esri World Imagery + Beta">
+                            <label class="form-check-label" for="BDV8">
+                                <a> Esri World Imagery + Beta </a> </input>
+                            </label>
+                        </div>
 
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="BDV8" name="BDV" value="Amazon GPS Traces">
+                            <label class="form-check-label" for="BDV6">
+                                <a> Amazon GPS Traces </a> </input>
+                            </label>
+                        </div>
 
-            <!-- Public OSM Imageries Checkboxes -->
-            <div class="col-md-6 text-left">
-                <br><div><b><u> Public OSM Imageries </u></b></br></div>
-                <form>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="PUBLIC" name="BD" value="Public OSM Imageries Present" onclick="publicShow()">
-                        <label class="form-check-label" for="PUBLIC">
-                            <a><u>Public OSM Imageries Used</u></a> </input>
-                        </label>
-                    </div>
-                    <div class="container" id="BDPUBLIC" style="display:none;">
-                        <form id="BDPUBLIC">
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="BDV7" name="BDV" value="Bing Aerial Imagery">
-                                <label class="form-check-label" for="BDV7">
-                                    <a> Bing Aerial Imagery </a> </input>
-                                </label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" id="BDV8" name="BDV" value="Esri World Imagery + Beta">
-                                <label class="form-check-label" for="BDV8">
-                                    <a> Esri World Imagery + Beta </a> </input>
-                                </label>
-                            </div>
-
-                        </form>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
+            </form>
+        </div>
 
 
             <!-- Public Street View Checkboxes -->
@@ -210,14 +191,14 @@ Date:24-02-2023 -->
                         <form id="BDOVERLAY">
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="BDV9" name="IMG" value="BING_Streetside">
+                                <input class="form-check-input" type="checkbox" id="BDV9" name="IMG" value="Bing_Streetside">
                                 <label class="form-check-label" for="BDV9">
                                     <a> Bing Streetside  </a> </input>
                                 </label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="BDV10" name="BDV" value="Mapillary">
+                                <input class="form-check-input" type="checkbox" id="BDV10" name="IMG" value="Mapillary">
                                 <label class="form-check-label" for="BDV10">
                                     <a> Mapillary </a> </input>
                                 </label>
@@ -359,9 +340,9 @@ Date:24-02-2023 -->
                             <form id="BDOTHER_OPTIONS">
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV27" name="BDV" value="@temp_escalation">
+                                    <input class="form-check-input" type="checkbox" id="BDV27" name="BDV" value="@temproadclosure_esc">
                                     <label class="form-check-label" for="BDV27">
-                                        <a> @temp_escalation </a> </input>
+                                        <a> Temp Road Closure Escalation to INRIX </a> </input>
                                     </label>
                                 </div>
 
@@ -373,57 +354,43 @@ Date:24-02-2023 -->
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV29" name="BDV" value="@IRISTGIMATCH">
+                                    <input class="form-check-input" type="checkbox" id="BDV29" name="BDV" value="@ambiguity_in_house_number">
                                     <label class="form-check-label" for="BDV29">
-                                        <a> @IRISTGIMATCH </a> </input>
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV30" name="BDV" value="@TGI_Mismatch">
-                                    <label class="form-check-label" for="BDV30">
-                                        <a> @TGI_Mismatch </a> </input>
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV31" name="BDV" value="@ambiguity_in_house_number">
-                                    <label class="form-check-label" for="BDV31">
                                         <a> @ambiguity_in_house_number </a> </input>
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV32" name="BDV" value="@BuildingNumberConflict">
-                                    <label class="form-check-label" for="BDV32">
+                                    <input class="form-check-input" type="checkbox" id="BDV30" name="BDV" value="@BuildingNumberConflict">
+                                    <label class="form-check-label" for="BDV30">
                                         <a> @BuildingNumberConflict </a> </input>
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV33" name="BDV" value="Public Imagery Conflict">
-                                    <label class="form-check-label" for="BDV33">
+                                    <input class="form-check-input" type="checkbox" id="BDV31" name="BDV" value="Public Imagery Conflict">
+                                    <label class="form-check-label" for="BDV31">
                                         <a> Public Imagery Conflict </a> </input>
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV34" name="BDV" value="Private Imagery Conflict">
-                                    <label class="form-check-label" for="BDV34">
+                                    <input class="form-check-input" type="checkbox" id="BDV32" name="BDV" value="Private Imagery Conflict">
+                                    <label class="form-check-label" for="BDV32">
                                         <a> Private Imagery Conflict </a> </input>
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV35" name="BDV" value="Ambiguous_Gate_Restriction">
-                                    <label class="form-check-label" for="BDV35">
+                                    <input class="form-check-input" type="checkbox" id="BDV33" name="BDV" value="Ambiguous_Gate_Restriction">
+                                    <label class="form-check-label" for="BDV33">
                                         <a> Ambiguous_Gate_Restriction </a> </input>
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV36" name="BDV" value="@physicalmedian" data-toggle="collapse" data-target="#demo1">
-                                    <label class="form-check-label" for="BDV36">
+                                    <input class="form-check-input" type="checkbox" id="BDV34" name="BDV" value="@physicalmedian" data-toggle="collapse" data-target="#demo1">
+                                    <label class="form-check-label" for="BDV34">
                                         <a> @physicalmedian  </a> </input>
                                     </label>
                                 </div>
@@ -432,8 +399,8 @@ Date:24-02-2023 -->
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="BDV37" name="BDV" value="@HGV" data-toggle="collapse" data-target="#demo1">
-                                    <label class="form-check-label" for="BDV37">
+                                    <input class="form-check-input" type="checkbox" id="BDV35" name="BDV" value="@HGV" data-toggle="collapse" data-target="#demo1">
+                                    <label class="form-check-label" for="BDV35">
                                         <a> @HGV </a> </input>
                                     </label>
                                 </div>
