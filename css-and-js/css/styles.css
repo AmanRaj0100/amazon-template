@@ -1,0 +1,53 @@
+        
+        /* Style for Whole WebPage Content */
+        .webpage {
+            padding-left: 100px;
+        }
+
+        /* Style for Text_Area under Lat-Long of Re-route */
+        .textarea-wrapper {
+        overflow: hidden;
+        max-height: 0;
+        }
+
+        .textarea-wrapper.expand {
+        max-height: fit-content;
+        max-width: 300px;
+        transition: max-height 0.5s ease-in;
+        }
+
+        /* Style for Text_Area under Barrier Others */
+        .textarea-wrapper1 {
+        overflow: hidden;
+        max-height: 0;
+        }
+
+        .textarea-wrapper1.expand {
+        max-height: fit-content;
+        max-width: 300px;
+        transition: max-height 0.5s ease-in;
+        }
+
+        /* Style for Text_Area under @physicalmedian */
+        .textarea-wrapper2 {
+        overflow: hidden;
+        max-height: 0;
+        }
+
+        .textarea-wrapper2.expand {
+        max-height: fit-content;
+        max-width: 300px;
+        transition: max-height 0.5s ease-in;
+        }
+
+        /* Style for Text_Area under @HGV */
+        .textarea-wrapper3 {
+        overflow: hidden;
+        max-height: 0;
+        }
+
+        .textarea-wrapper3.expand {
+        max-height: fit-content;
+        max-width: 300px;
+        transition: max-height 0.5s ease-in;
+        }
