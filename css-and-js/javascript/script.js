@@ -150,7 +150,7 @@ function otherShow() {
                 }
                 if (document.getElementById('BDV20').checked) {
                     finalText += 'Lat-Long: ';
-                    finalText += document.getElementById('lat_long_reroute').value + ', ';
+                    finalText += document.getElementById('lat_long_reroute').value.trim() + ', ';
                     document.getElementById('lat_long_reroute').value='';
                     document.getElementById('BDV20').checked = false;
                 }
