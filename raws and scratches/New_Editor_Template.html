@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editor Template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+    <style>
+
+        /* Style for Whole WebPage Content */
+        .webpage {
+            padding-left: 100px;
+        }
+
+        /* Style for Text_Area under Lat-Long of Re-route */
+        .textarea-wrapper {
+        overflow: hidden;
+        max-height: 0;
+        }
+
+        .textarea-wrapper.expand {
+        max-height: fit-content;
+        max-width: 300px;
+        transition: max-height 0.5s ease-in;
+        }
+
+        /* Style for Text_Area under Barrier Others */
+        .textarea-wrapper1 {
+        overflow: hidden;
+        max-height: 0;
+        }
+
+        .textarea-wrapper1.expand {
+        max-height: fit-content;
+        max-width: 300px;
+        transition: max-height 0.5s ease-in;
+        }
+
+        /* Style for Text_Area under @physicalmedian */
+        .textarea-wrapper2 {
+        overflow: hidden;
+        max-height: 0;
+        }
+
+        .textarea-wrapper2.expand {
+        max-height: fit-content;
+        max-width: 300px;
+        transition: max-height 0.5s ease-in;
+        }
+
+        /* Style for Text_Area under @HGV */
+        .textarea-wrapper3 {
+        overflow: hidden;
+        max-height: 0;
+        }
+
+        .textarea-wrapper3.expand {
+        max-height: fit-content;
+        max-width: 300px;
+        transition: max-height 0.5s ease-in;
+        }
+		
+    </style>
+
+    <script>
+        function tripShow() {
+            var checkBox = document.getElementById("Trip");
+            var text = document.getElementById("BDIP");
+            if (checkBox.checked == true){
+                BDIP.style.display = "block";
+            } else {
+                BDIP.style.display = "none";
+		    }
+	    }
+
+        function fleetShow() {
+            var checkBox = document.getElementById("Fleet");
+            var text = document.getElementById("BDIF");
+            if (checkBox.checked == true){
+                BDIF.style.display = "block";
+            } else {
+                BDIF.style.display = "none";
+		    }
+	    }
+
+        function pvtShow() {
+            var checkBox = document.getElementById("PVT");
+            var text = document.getElementById("BDPVT");
+            if (checkBox.checked == true){
+                BDPVT.style.display = "block";
+            } else {
+                BDPVT.style.display = "none";
+		    }
+	    }
+
+        function publicShow() {
+            var checkBox = document.getElementById("PUBLIC");
+            var text = document.getElementById("BDPUBLIC");
+            if (checkBox.checked == true){
+                BDPUBLIC.style.display = "block";
+            } else {
+                BDPUBLIC.style.display = "none";
+		    }
+	    }
+
+        function overlayShow() {
+            var checkBox = document.getElementById("OVERLAY");
+            var text = document.getElementById("BDOVERLAY");
+            if (checkBox.checked == true){
+                BDOVERLAY.style.display = "block";
+            } else {
+                BDOVERLAY.style.display = "none";
+		    }
+	    }
+
+        function barrierShow() {
+            var checkBox = document.getElementById("BARRIER");
+            var text = document.getElementById("BDBARRIER");
+            if (checkBox.checked == true){
+                BDBARRIER.style.display = "block";
+            } else {
+                BDBARRIER.style.display = "none";
+		    }
+	    }
+
+        function otherShow() {
+            var checkBox = document.getElementById("OTHER_OPTIONS");
+            var text = document.getElementById("BDOTHER_OPTIONS");
+            if (checkBox.checked == true){
+                BDOTHER_OPTIONS.style.display = "block";
+            } else {
+                BDOTHER_OPTIONS.style.display = "none";
+		    }
+	    }
+
+    </script>
+</head>
+    <body>
+
+    
+        <!-- NavBar Code Block -->
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Editor Template</span>
+            </div>
+        </nav> 
+
+
+    <div class="webpage">
+
+            <!-- Trip Diver Checkboxes -->
+            <div class="col-md-6 text-left">
+                <br><div><b><u> Trip Diver </u></b></br></div>
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Trip" name="BD" value="Trip Diver Present" onclick="tripShow()">
+                        <label class="form-check-label" for="Trip">
+                            <a><u>Trip Diver Tool checked</u></a> </input>
+                        </label>
+                    </div>
+                    <div class="container" id="BDIP" style="display:none;">
+                        <form id="BDIPF">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="BDV19" name="BDV" value=" Trip Diver Link Present ">
+                                <label class="form-check-label" for="BDV19">
+                                    <a> Trip Diver Link Present </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV20" name="BDV" value="Lat-Long of Re-route" data-toggle="collapse" data-target="#demo1">
+                                <label class="form-check-label" for="BDV20">
+                                    <a>  Lat-Long of Re-route </a> </input>
+                                </label>
+                            </div>
+                            <div id="demo1" class="textarea-wrapper">
+                                <textarea class="form-control rounded-0" rows="1" cols="20" placeholder="latitude,longitude" id="lat_long_reroute"></textarea>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="BDV21" name="BDV" value=" Trip Diver Link Not Present ">
+                                <label class="form-check-label" for="BDV21">
+                                    <a> Trip Diver Link Not Present </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV22" name="BDV" value=" No Results of the Sub-Route ">
+                                <label class="form-check-label" for="BDV22">
+                                    <a> No Results of the Sub-Route </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV23" name="BDV" value=" No Re-route in the Sub-Route ">
+                                <label class="form-check-label" for="BDV23">
+                                    <a> No Re-route in the Sub-Route </a> </input>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Fleet Edge Checkboxes -->
+            <div class="col-md-6 text-left">
+                <br><div><b><u> Fleet Edge </u></b></br></div>
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Fleet" name="BD" value="Fleet Edge Present" onclick="fleetShow()">
+                        <label class="form-check-label" for="Fleet">
+                            <a><u>Fleet Edge Imagery Checked</u></a> </input>
+                        </label>
+                    </div>
+                    <div class="container" id="BDIF" style="display:none;">
+                        <form id="BDIPF">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="BDV1" name="BDV" value=" FE Image Present ">
+                                <label class="form-check-label" for="BDV1">
+                                    <a> FE Image Present </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="BDV2" name="BDV" value=" FE Image Not Present ">
+                                <label class="form-check-label" for="BDV2">
+                                    <a> FE Image Not Present </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV3" name="BDV" value=" FE Image/Sign was used to resolve ">
+                                <label class="form-check-label" for="BDV3">
+                                    <a> FE Image/Sign was used to resolve </a> </input>
+                                </label>
+                            </div>
+
+                        </form>
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Private Imageries Checkboxes -->
+            <div class="col-md-6 text-left">
+                <br><div><b><u> Private Imageries </u></b></br></div>
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="PVT" name="BD" value="Fleet Edge Present" onclick="pvtShow()">
+                        <label class="form-check-label" for="PVT">
+                            <a><u>Private Imageries Used</u></a> </input>
+                        </label>
+                    </div>
+                    <div class="container" id="BDPVT" style="display:none;">
+                        <form id="BDPVT">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV4" name="BDV" value=" Earthwatch Imagery (Amazon Daily Imagery) ">
+                                <label class="form-check-label" for="BDV4">
+                                    <a> Earthwatch Imagery (Amazon Daily Imagery) </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV5" name="BDV" value=" Sanborn ">
+                                <label class="form-check-label" for="BDV5">
+                                    <a> Sanborn </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV6" name="BDV" value=" Amazon GPS Traces ">
+                                <label class="form-check-label" for="BDV6">
+                                    <a> Amazon GPS Traces </a> </input>
+                                </label>
+                            </div>
+
+                        </form>
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Public OSM Imageries Checkboxes -->
+            <div class="col-md-6 text-left">
+                <br><div><b><u> Public OSM Imageries </u></b></br></div>
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="PUBLIC" name="BD" value="Public OSM Imageries Present" onclick="publicShow()">
+                        <label class="form-check-label" for="PUBLIC">
+                            <a><u>Public OSM Imageries Used</u></a> </input>
+                        </label>
+                    </div>
+                    <div class="container" id="BDPUBLIC" style="display:none;">
+                        <form id="BDPUBLIC">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV7" name="BDV" value=" Bing Aerial Imagery ">
+                                <label class="form-check-label" for="BDV7">
+                                    <a> Bing Aerial Imagery </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV8" name="BDV" value=" Esri World Imagery + Beta ">
+                                <label class="form-check-label" for="BDV8">
+                                    <a> Esri World Imagery + Beta </a> </input>
+                                </label>
+                            </div>
+
+                        </form>
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Public Street View Checkboxes -->
+            <div class="col-md-6 text-left">
+                <br><div><b><u> Public Street View </u></b></br></div>
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="OVERLAY" name="BD" value="Overlay Present" onclick="overlayShow()">
+                        <label class="form-check-label" for="OVERLAY">
+                            <a><u> Overlays Used </u></a> </input>
+                        </label>
+                    </div>
+                    <div class="container" id="BDOVERLAY" style="display:none;">
+                        <form id="BDOVERLAY">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV9" name="IMG" value="BING_Streetside">
+                                <label class="form-check-label" for="BDV9">
+                                    <a> Bing Streetside  </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV10" name="BDV" value="Mapillary">
+                                <label class="form-check-label" for="BDV10">
+                                    <a> Mapillary </a> </input>
+                                </label>
+                            </div>
+
+                        </form>
+                    </div>
+                </form>
+            </div>
+            
+
+                <!-- Custom Comments box -->
+                <div class="col-md-4 text-left">
+                    <label for="floatingTextarea"><br><b><u>Other Comments</u></b></br></label>
+                    <textarea class="form-control" rows="1" placeholder="Other Comments" id="floatingTextarea"></textarea>
+                </div>
+
+
+                <!-- Public OSM Changeset box -->
+                <div  class="col-md-4 text-left">
+                    <label for="changeset"><br><b><u>Public OSM Changeset</u></b></br></label>
+                    <!-- textarea only accepts numeric input and allows up to 9 digits. -->
+                    <textarea class="form-control" rows="1" cols="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 9)" placeholder="Public OSM Changeset" id="changeset"></textarea>
+                </div>
+
+
+                <!-- Barriers Checkboxes -->
+                <div class="col-md-6 text-left">
+                    <br><b class="font-weight-bold" ><u> Barrier (If Yes) select </u></b></br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="BARRIER" name="" value="" onclick="barrierShow()">
+                        <label class="form-check-label" for="BARRIER">
+                            <a style="color: #f70a12"> Barrier Present </a> </input>
+                        </label>
+                    </div>
+                    <form id="BDBARRIER" style="display:none">
+                        <ul>
+                            <li><b> Type of Barrier </b></li>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV11" name="barrier_radio1" value="$_gate">
+                                <label class="form-check-label" for="BDV11">
+                                    <a> Gate </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV12" name="barrier_radio1" value="$_bollard">
+                                <label class="form-check-label" for="BDV12">
+                                    <a> Bollard </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV13" name="barrier_radio1" value="$_curb">
+                                <label class="form-check-label" for="BDV13">
+                                    <a>  Curb </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV14" name="barrier_radio1" value="OTHERS" data-toggle="collapse" data-target="#demo1">
+                                <label class="form-check-label" for="BDV14">
+                                    <a>  Others (mention in comment below) </a> </input>
+                                </label>
+                            </div>
+                            <div id="demo1" class="textarea-wrapper1">
+                                <textarea class="form-control rounded-0" rows="1" id="barrier_other"></textarea>
+                            </div>
+
+                            <li><b> Access on Barrier </b></li>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV15" name="barrier_access" value="access:delivery=no">
+                                <label class="form-check-label" for="BDV15">
+                                    <a> access:delivery=no </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV16" name="barrier_access" value="access=no">
+                                <label class="form-check-label" for="BDV16">
+                                    <a> access=no </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV17" name="barrier_access" value="access=private">
+                                <label class="form-check-label" for="BDV17">
+                                    <a> access=private </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV18" name="barrier_access" value="access=destination">
+                                <label class="form-check-label" for="BDV18">
+                                    <a> access=destination </a> </input>
+                                </label>
+                            </div>
+
+                            <li><b>Barrier Sub-Classification</b></li>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="BDV24" name="barrier_radio2" value="_permanent_">
+                                <label class="form-check-label" for="BDV24">
+                                    <a> Permanent Blockage </a> </input>
+                                </label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="BDV25" name="barrier_radio2" value="_temporary_">
+                                <label class="form-check-label" for="BDV25">
+                                    <a> Temporary Blockage </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" id="BDV26" name="barrier_radio2" value="_unsure-seal_">
+                                <label class="form-check-label" for="BDV26">
+                                    <a> Not sure if permanent or temporary blockage </a> </input>
+                                </label>
+                            </div>
+                        </ul>
+                    </form>
+                </div>
+
+                <!-- Other Options Checkboxes -->
+                <div class="col-md-6 text-left">
+                    <br>
+                    <div><b><u> Other Options </u></b></div>
+                    <form>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="OTHER_OPTIONS" name="BD" value="Other Options" onclick="otherShow()">
+                            <label class="form-check-label" for="OTHER_OPTIONS">
+                                <a><u>Other Options</u></a></input>
+                            </label>
+                        </div>
+                        <div class="container" id="BDOTHER_OPTIONS" style="display:none;">
+                            <form id="BDOTHER_OPTIONS">
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV27" name="BDV" value=" @temp_escalation ">
+                                    <label class="form-check-label" for="BDV27">
+                                        <a> @temp_escalation </a> </input>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV28" name="BDV" value=" Geocode_Issue ">
+                                    <label class="form-check-label" for="BDV28">
+                                        <a> Geocode Issue </a> </input>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV29" name="BDV" value=" @IRISTGIMATCH ">
+                                    <label class="form-check-label" for="BDV29">
+                                        <a> @IRISTGIMATCH </a> </input>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV30" name="BDV" value=" @TGI_Mismatch ">
+                                    <label class="form-check-label" for="BDV30">
+                                        <a> @TGI_Mismatch </a> </input>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV31" name="BDV" value=" @ambiguity_in_house_number ">
+                                    <label class="form-check-label" for="BDV31">
+                                        <a> @ambiguity_in_house_number </a> </input>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV32" name="BDV" value=" @BuildingNumberConflict ">
+                                    <label class="form-check-label" for="BDV32">
+                                        <a> @BuildingNumberConflict </a> </input>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV33" name="BDV" value=" Public Imagery Conflict ">
+                                    <label class="form-check-label" for="BDV33">
+                                        <a> Public Imagery Conflict </a> </input>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV34" name="BDV" value=" Private Imagery Conflict ">
+                                    <label class="form-check-label" for="BDV34">
+                                        <a> Private Imagery Conflict </a> </input>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV35" name="BDV" value=" Ambiguous_Gate_Restriction ">
+                                    <label class="form-check-label" for="BDV35">
+                                        <a> Ambiguous_Gate_Restriction </a> </input>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV36" name="BDV" value=" @physicalmedian " data-toggle="collapse" data-target="#demo1">
+                                    <label class="form-check-label" for="BDV36">
+                                        <a> @physicalmedian  </a> </input>
+                                    </label>
+                                </div>
+                                <div id="demo1" class="textarea-wrapper2">
+                                    <textarea class="form-control rounded-0" rows="1" id="@physicalmedian"></textarea>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="BDV37" name="BDV" value=" @HGV " data-toggle="collapse" data-target="#demo1">
+                                    <label class="form-check-label" for="BDV37">
+                                        <a> @HGV </a> </input>
+                                    </label>
+                                </div>
+                                <div id="demo1" class="textarea-wrapper3">
+                                    <textarea class="form-control rounded-0" rows="1" id="@HGV"></textarea>
+                                </div>
+
+                            </form>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Submit and Copy Button -->
+                <div>
+                    <br>
+                    <button class="btn btn-primary"  type="button"  id='clicks' onclick="copyAndClear()" > Submit & Copy </button></div>
+                    <input type="text" name="" id="copy" style="opacity: 0">
+                </div>
+            
+
+            <script>
+
+                //---------------------------------------------------------------------------------------
+                // This is code for opening the text-area under Lat-Long on Re-route and Barrier Others
+                const checkbox = document.getElementById('BDV20');
+
+                checkbox.addEventListener('change', function() {
+                    const textareaWrapper = document.querySelector('.textarea-wrapper');
+                    if (checkbox.checked) {
+                        textareaWrapper.classList.add('expand');
+                    } else {
+                        textareaWrapper.classList.remove('expand');
+                    }
+                });
+
+                //---------------------------------------------------------------------------------------
+                // This is code for opening the text-area under Barrier Others
+                const checkbox1 = document.getElementById('BDV14');
+
+                checkbox1.addEventListener('change', function() {
+                    const textareaWrapper1 = document.querySelector('.textarea-wrapper1');
+                    if (checkbox1.checked) {
+                        textareaWrapper1.classList.add('expand');
+                    } else {
+                        textareaWrapper1.classList.remove('expand');
+                    }
+                });
+                //---------------------------------------------------------------------------------------
+
+                //---------------------------------------------------------------------------------------
+                // This is code for opening the text-area under @physicalmedian
+                const checkbox2 = document.getElementById('BDV36');
+
+                checkbox2.addEventListener('change', function() {
+                    const textareaWrapper2 = document.querySelector('.textarea-wrapper2');
+                    if (checkbox2.checked) {
+                        textareaWrapper2.classList.add('expand');
+                    } else {
+                        textareaWrapper2.classList.remove('expand');
+                    }
+                });
+                //---------------------------------------------------------------------------------------
+
+                //---------------------------------------------------------------------------------------
+                // This is code for opening the text-area under @HGV
+                const checkbox3 = document.getElementById('BDV37');
+
+                checkbox3.addEventListener('change', function() {
+                    const textareaWrapper3 = document.querySelector('.textarea-wrapper3');
+                    if (checkbox3.checked) {
+                        textareaWrapper3.classList.add('expand');
+                    } else {
+                        textareaWrapper3.classList.remove('expand');
+                    }
+                });
+                //---------------------------------------------------------------------------------------
+
+                //---------------------------------------------------------------------------------------
+                // This is code which checks if the value of the lat-long textarea matches a particular 
+                //pattern and display an alert if it does not.
+
+                var latLongTextarea = document.getElementById('lat_long_reroute');
+
+                latLongTextarea.addEventListener('blur', function() {
+                        var input = latLongTextarea.value.trim();
+                        var regex1 = /^(-?\d+(\.\d+)?), (-?\d+(\.\d+)?)$/;//with one space lat,[space]long
+                        var regex2 = /^(-?\d+(\.\d+)?),(-?\d+(\.\d+)?)$/;//without space after lat,long
+
+                    if (!regex1.test(input)&&!regex2.test(input)) {
+                        alert('Please enter a valid latitude,longitude value (e.g. 40.7128,-74.0060)');
+                        latLongTextarea.value='';
+                    }
+
+                });
+                //---------------------------------------------------------------------------------------
+
+
+                //--------------------------------------------------------------------------------------------------------
+                // This is the code block for getting final_text on clicking Submit & Copy and clears the checkboxes
+                function copyAndClear() {
+
+                    let finalText = '';
+
+                    //For Trip Diver Checkboxes
+                    if (document.getElementById('Trip').checked) {
+                        
+                        document.getElementById('Trip').checked = false;
+
+                        if (document.getElementById('BDV19').checked) {
+                            finalText += document.getElementById('BDV19').value + ', ';
+                            document.getElementById('BDV19').checked = false;
+                        }
+                        if (document.getElementById('BDV20').checked) {
+                            finalText += 'Lat-Long: ';
+                            finalText += document.getElementById('lat_long_reroute').value + ', ';
+                            document.getElementById('lat_long_reroute').value='';
+                            document.getElementById('BDV20').checked = false;
+                        }
+                        if (document.getElementById('BDV21').checked) {
+                            finalText += document.getElementById('BDV21').value + ', ';
+                            document.getElementById('BDV21').checked = false;
+                        }
+                        if (document.getElementById('BDV22').checked) {
+                            finalText += document.getElementById('BDV22').value + ', ';
+                            document.getElementById('BDV22').checked = false;
+                        }
+                        if (document.getElementById('BDV23').checked) {
+                            finalText += document.getElementById('BDV23').value + ', ';
+                            document.getElementById('BDV23').checked = false;
+                        }
+                    }tripShow();//To close the collapsible checkbox
+
+
+                    //For Fleet Edge Checkboxes
+                    if (document.getElementById('Fleet').checked) {
+                        
+                        document.getElementById('Fleet').checked = false;
+
+                        if (document.getElementById('BDV1').checked) {
+                            finalText += document.getElementById('BDV1').value + ', ';
+                            document.getElementById('BDV1').checked = false;
+                        }
+                        if (document.getElementById('BDV2').checked) {
+                            finalText += document.getElementById('BDV2').value + ', ';
+                            document.getElementById('BDV2').checked = false;
+                        }
+                        if (document.getElementById('BDV3').checked) {
+                            finalText += document.getElementById('BDV3').value + ', ';
+                            document.getElementById('BDV3').checked = false;
+                        }
+                    }fleetShow();//To close the collapsible checkbox
+
+
+                    //For Private Imageries Checkboxes
+                    if (document.getElementById('PVT').checked) {
+                        
+                        document.getElementById('PVT').checked = false;
+
+                        if (document.getElementById('BDV4').checked) {
+                            finalText += document.getElementById('BDV4').value + ', ';
+                            document.getElementById('BDV4').checked = false;
+                        }
+                        if (document.getElementById('BDV5').checked) {
+                            finalText += document.getElementById('BDV5').value + ', ';
+                            document.getElementById('BDV5').checked = false;
+                        }
+                        if (document.getElementById('BDV6').checked) {
+                            finalText += document.getElementById('BDV6').value + ', ';
+                            document.getElementById('BDV6').checked = false;
+                        }
+                    }pvtShow();//To close the collapsible checkbox
+
+
+                    //For Public OSM Imageries Checkboxes
+                    if (document.getElementById('PUBLIC').checked) {
+                        
+                        document.getElementById('PUBLIC').checked = false;
+
+                        if (document.getElementById('BDV7').checked) {
+                            finalText += document.getElementById('BDV7').value + ', ';
+                            document.getElementById('BDV7').checked = false;
+                        }
+                        if (document.getElementById('BDV8').checked) {
+                            finalText += document.getElementById('BDV8').value + ', ';
+                            document.getElementById('BDV8').checked = false;
+                        }
+                    }publicShow();//To close the collapsible checkbox
+
+
+                    //For Public Street View Checkboxes
+                    if (document.getElementById('OVERLAY').checked) {
+                        
+                        document.getElementById('OVERLAY').checked = false;
+
+                        if (document.getElementById('BDV9').checked) {
+                            finalText += document.getElementById('BDV9').value + ', ';
+                            document.getElementById('BDV9').checked = false;
+                        }
+                        if (document.getElementById('BDV10').checked) {
+                            finalText += document.getElementById('BDV10').value + ', ';
+                            document.getElementById('BDV10').checked = false;
+                        }
+                    }overlayShow();//To close the collapsible checkbox
+
+                    //For Other Comments
+                    if(document.getElementById('floatingTextarea').value != ''){
+                        finalText += 'Comments: ';
+                        finalText += document.getElementById('floatingTextarea').value + ', ';
+                    }
+
+                    //For Public OSM Changeset
+                    if(document.getElementById('changeset').value != ''){
+                        finalText += 'Changeset: ';
+                        finalText += document.getElementById('changeset').value + ', ';
+                    }
+
+                    //For Barrier Checkboxes
+                    if (document.getElementById('BARRIER').checked) {
+                        
+                        document.getElementById('BARRIER').checked = false;
+
+                        if (document.getElementById('BDV11').checked) {
+                            finalText += document.getElementById('BDV11').value + ', ';
+                            document.getElementById('BDV11').checked = false;
+                        }
+                        if (document.getElementById('BDV12').checked) {
+                            finalText += document.getElementById('BDV12').value + ', ';
+                            document.getElementById('BDV12').checked = false;
+                        }
+                        if (document.getElementById('BDV13').checked) {
+                            finalText += document.getElementById('BDV13').value + ', ';
+                            document.getElementById('BDV13').checked = false;
+                        }
+                        if (document.getElementById('BDV14').checked) {
+                            finalText += document.getElementById('barrier_other').value + ', ';
+                            document.getElementById('barrier_other').value='';
+                            document.getElementById('BDV14').checked = false;
+                        }
+                        if (document.getElementById('BDV15').checked) {
+                            finalText += document.getElementById('BDV15').value + ', ';
+                            document.getElementById('BDV15').checked = false;
+                        }
+                        if (document.getElementById('BDV16').checked) {
+                            finalText += document.getElementById('BDV16').value + ', ';
+                            document.getElementById('BDV16').checked = false;
+                        }
+                        if (document.getElementById('BDV17').checked) {
+                            finalText += document.getElementById('BDV17').value + ', ';
+                            document.getElementById('BDV17').checked = false;
+                        }
+                        if (document.getElementById('BDV18').checked) {
+                            finalText += document.getElementById('BDV18').value + ', ';
+                            document.getElementById('BDV18').checked = false;
+                        }
+                        if (document.getElementById('BDV24').checked) {
+                            finalText += document.getElementById('BDV24').value + ', ';
+                            document.getElementById('BDV24').checked = false;
+                        }
+                        if (document.getElementById('BDV25').checked) {
+                            finalText += document.getElementById('BDV25').value + ', ';
+                            document.getElementById('BDV25').checked = false;
+                        }
+                        if (document.getElementById('BDV26').checked) {
+                            finalText += document.getElementById('BDV26').value + ', ';
+                            document.getElementById('BDV26').checked = false;
+                        }
+                    }barrierShow();//To close the collapsible checkbox
+
+                    //For Other Options Checkboxes
+                    if (document.getElementById('OTHER_OPTIONS').checked) {
+                        
+                        document.getElementById('OTHER_OPTIONS').checked = false;
+
+                        if (document.getElementById('BDV27').checked) {
+                            finalText += document.getElementById('BDV27').value + ', ';
+                            document.getElementById('BDV27').checked = false;
+                        }
+                        if (document.getElementById('BDV28').checked) {
+                            finalText += document.getElementById('BDV28').value + ', ';
+                            document.getElementById('BDV28').checked = false;
+                        }
+                        if (document.getElementById('BDV29').checked) {
+                            finalText += document.getElementById('BDV29').value + ', ';
+                            document.getElementById('BDV29').checked = false;
+                        }
+                        if (document.getElementById('BDV30').checked) {
+                            finalText += document.getElementById('BDV30').value + ', ';
+                            document.getElementById('BDV30').checked = false;
+                        }
+                        if (document.getElementById('BDV31').checked) {
+                            finalText += document.getElementById('BDV31').value + ', ';
+                            document.getElementById('BDV31').checked = false;
+                        }
+                        if (document.getElementById('BDV32').checked) {
+                            finalText += document.getElementById('BDV32').value + ', ';
+                            document.getElementById('BDV32').checked = false;
+                        }
+                        if (document.getElementById('BDV33').checked) {
+                            finalText += document.getElementById('BDV33').value + ', ';
+                            document.getElementById('BDV33').checked = false;
+                        }
+                        if (document.getElementById('BDV34').checked) {
+                            finalText += document.getElementById('BDV34').value + ', ';
+                            document.getElementById('BDV34').checked = false;
+                        }
+                        if (document.getElementById('BDV35').checked) {
+                            finalText += document.getElementById('BDV35').value + ', ';
+                            document.getElementById('BDV35').checked = false;
+                        }
+                        if (document.getElementById('BDV36').checked) {
+                            finalText += '@physicalmedian: ';
+                            finalText += document.getElementById('@physicalmedian').value + ', ';
+                            document.getElementById('@physicalmedian').value='';
+                            document.getElementById('BDV36').checked = false;
+                        }
+                        if (document.getElementById('BDV37').checked) {
+                            finalText += '@HGV: ';
+                            finalText += document.getElementById('@HGV').value + ', ';
+                            document.getElementById('@HGV').value='';
+                            document.getElementById('BDV37').checked = false;
+                        }
+                    }otherShow();//To close the collapsible checkbox
+
+                    navigator.clipboard.writeText(finalText);
+
+                    document.getElementById('floatingTextarea').value = '';
+                    document.getElementById('changeset').value = '';
+                }
+
+                //-------------------------------------------------------------------------------------------------------- 
+
+                //Adding alerts----------------------------------------------------------------------------------------
+
+                var i = '';
+
+                //-----------------------------------------------------------------------------------------------------
+            </script> 
+        </div>   
+    </body>
+</html>

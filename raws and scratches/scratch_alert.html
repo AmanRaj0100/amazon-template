@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkbox Alert Example</title>
+</head>
+<body>
+	<h1>Checkbox Alert Example</h1>
+	<p>Please check the box below:</p>
+	<form>
+		<input type="checkbox" id="myCheckbox" name="myCheckbox">
+		<label for="myCheckbox">I agree to the terms and conditions</label>
+		<br><br>
+		<button type="button" onclick="checkCheckbox()">Submit</button>
+	</form>
+
+	<script>
+		function checkCheckbox() {
+			if (document.getElementById("myCheckbox").checked == false) {
+				alert("Please check the box before submitting.");
+				return false;
+			}
+			else {
+				alert("Checkbox is checked. Form submitted successfully!");
+				return true;
+			}
+		}
+	</script>
+</body>
+</html>

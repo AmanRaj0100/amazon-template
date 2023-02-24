@@ -1,0 +1,62 @@
+<div>
+    <textarea rows="1" cols="20" pattern="^(-?\d+(\.\d+)?),(-?\d+(\.\d+)?)$" oninput="validateLatLong(this)" placeholder="Enter latitude,longitude"></textarea>
+</div>
+
+
+
+
+<script>
+function validateLatLong(textarea) {
+  var input = textarea.value.trim();
+  var regex = /^(-?\d+(\.\d+)?),(-?\d+(\.\d+)?)$/;
+
+  if (!regex.test(input)) {
+    textarea.setCustomValidity('Please enter a valid latitude,longitude value (e.g. 40.7128,-74.0060)');
+  } else {
+    var coords = input.split(',');
+    var lat = parseFloat(coords[0]);
+    var lng = parseFloat(coords[1]);
+
+    if (lat < -90 || lat > 90 || lng < -180 || lng > 180) {
+      textarea.setCustomValidity('Please enter a latitude value between -90 and 90, and a longitude value between -180 and 180');
+    } else {
+      textarea.setCustomValidity('');
+    }
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------------------check if the textarea value matches a particular pattern if not gives a alert saying Enter valid lat-long
+You can use JavaScript to check if the value of the textarea matches a particular pattern and display an alert if it does not. Here's an example:----------------->
+<textarea rows="1" cols="20" id="lat-long-textarea" placeholder="Enter latitude,longitude"></textarea>
+
+<script>
+var latLongTextarea = document.getElementById('lat-long-textarea');
+
+latLongTextarea.addEventListener('blur', function() {
+  var input = latLongTextarea.value.trim();
+  var regex = /^(-?\d+(\.\d+)?),(-?\d+(\.\d+)?)$/;
+
+  if (!regex.test(input)) {
+    alert('Please enter a valid latitude,longitude value (e.g. 40.7128,-74.0060)');
+    latLongTextarea.focus();
+  }
+});
+</script>
+
+<!--This code adds an event listener to the textarea that listens for the blur event (i.e. when the user clicks outside the textarea). When this event occurs, the function inside the event listener is executed. This function checks if the value of the textarea matches the regular expression ^(-?\d+(\.\d+)?),(-?\d+(\.\d+)?)$ (which matches the format of latitude and longitude values), and displays an alert with an error message if it does not. The focus method is called on the textarea to return the focus to it so that the user can enter a valid value.
+
+You can customize the regular expression to match the specific pattern you want to check for, and customize the error message in the alert to provide more specific instructions to the user if necessary.-->
+
