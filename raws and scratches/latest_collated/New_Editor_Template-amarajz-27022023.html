@@ -455,13 +455,6 @@ Date:24-02-2023 -->
                             <form id="BDOTHER_OPTIONS">
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="NEW1" name="BDV" value="@ams_edit">
-                                    <label class="form-check-label" for="NEW1">
-                                        <a> @ams_edit </a> </input>
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="BDV27" name="BDV" value="@temproadclosure_esc">
                                     <label class="form-check-label" for="BDV27">
                                         <a> Temp Road Closure Escalation to INRIX </a> </input>
@@ -786,10 +779,6 @@ Date:24-02-2023 -->
                         
                         document.getElementById('OTHER_OPTIONS').checked = false;
 
-                        if (document.getElementById('NEW1').checked) {
-                            finalText += document.getElementById('NEW1').value + ', ';
-                            document.getElementById('NEW1').checked = false;
-                        }
                         if (document.getElementById('BDV27').checked) {
                             finalText += document.getElementById('BDV27').value + ', ';
                             document.getElementById('BDV27').checked = false;

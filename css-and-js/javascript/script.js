@@ -300,10 +300,6 @@ function otherShow() {
                 
                 document.getElementById('OTHER_OPTIONS').checked = false;
 
-                if (document.getElementById('NEW1').checked) {
-                    finalText += document.getElementById('NEW1').value + ', ';
-                    document.getElementById('NEW1').checked = false;
-                }
                 if (document.getElementById('BDV27').checked) {
                     finalText += document.getElementById('BDV27').value + ', ';
                     document.getElementById('BDV27').checked = false;
