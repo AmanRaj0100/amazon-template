@@ -165,16 +165,6 @@ Date:24-02-2023 -->
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="BDV20" name="BDV" value="Lat-Long of Re-route" data-toggle="collapse" data-target="#demo1">
-                                <label class="form-check-label" for="BDV20">
-                                    <a>  Lat-Long of Re-route </a> </input>
-                                </label>
-                            </div>
-                            <div id="demo1" class="textarea-wrapper">
-                                <textarea class="form-control rounded-0" rows="1" cols="20" placeholder="latitude,longitude" id="lat_long_reroute"></textarea>
-                            </div>
-
-                            <div class="form-check">
                                 <input class="form-check-input" type="radio" id="BDV21" name="BDV" value="Trip Diver Link Not Present">
                                 <label class="form-check-label" for="BDV21">
                                     <a> Trip Diver Link Not Present </a> </input>
@@ -194,6 +184,24 @@ Date:24-02-2023 -->
                                     <a> No Re-route in the Sub-Route </a> </input>
                                 </label>
                             </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="NEW1" name="BDV" value="@TGI_Mismatch">
+                                <label class="form-check-label" for="NEW1">
+                                    <a> Trip Diver Location Mismatch </a> </input>
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="BDV20" name="BDV" value="Lat-Long of Re-route/Timestamp" data-toggle="collapse" data-target="#demo1">
+                                <label class="form-check-label" for="BDV20">
+                                    <a>  Lat-Long of Re-route/Timestamp </a> </input>
+                                </label>
+                            </div>
+                            <div id="demo1" class="textarea-wrapper">
+                                <textarea class="form-control rounded-0" rows="1" cols="20" placeholder="latitude,longitude" id="lat_long"></textarea>
+                            </div>
+
                         </form>
                     </div>
                 </form>
@@ -597,7 +605,7 @@ Date:24-02-2023 -->
                 // This is code which checks if the value of the lat-long textarea matches a particular 
                 //pattern and display an alert if it does not.
 
-                var latLongTextarea = document.getElementById('lat_long_reroute');
+                var latLongTextarea = document.getElementById('lat_long');
 
                 latLongTextarea.addEventListener('blur', function() {
                     var input = latLongTextarea.value.trim();
@@ -627,11 +635,9 @@ Date:24-02-2023 -->
                             finalText += document.getElementById('BDV19').value + ', ';
                             document.getElementById('BDV19').checked = false;
                         }
-                        if (document.getElementById('BDV20').checked) {
-                            finalText += 'Lat-Long: ';
-                            finalText += document.getElementById('lat_long_reroute').value.trim() + ', ';
-                            document.getElementById('lat_long_reroute').value='';
-                            document.getElementById('BDV20').checked = false;
+                        if (document.getElementById('NEW1').checked) {
+                            finalText += document.getElementById('NEW1').value + ', ';
+                            document.getElementById('NEW1').checked = false;
                         }
                         if (document.getElementById('BDV21').checked) {
                             finalText += document.getElementById('BDV21').value + ', ';
@@ -644,6 +650,12 @@ Date:24-02-2023 -->
                         if (document.getElementById('BDV23').checked) {
                             finalText += document.getElementById('BDV23').value + ', ';
                             document.getElementById('BDV23').checked = false;
+                        }
+                        if (document.getElementById('BDV20').checked) {
+                            finalText += 'TGI Lat-Long: ';
+                            finalText += document.getElementById('lat_long').value.trim() + ', ';
+                            document.getElementById('lat_long').value='';
+                            document.getElementById('BDV20').checked = false;
                         }
                     }tripShow();//To close the collapsible checkbox
 

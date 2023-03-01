@@ -118,7 +118,7 @@ function otherShow() {
         // This is code which checks if the value of the lat-long textarea matches a particular 
         //pattern and display an alert if it does not.
 
-        var latLongTextarea = document.getElementById('lat_long_reroute');
+        var latLongTextarea = document.getElementById('lat_long');
 
                 latLongTextarea.addEventListener('blur', function() {
                     var input = latLongTextarea.value.trim();
@@ -148,11 +148,9 @@ function otherShow() {
                     finalText += document.getElementById('BDV19').value + ', ';
                     document.getElementById('BDV19').checked = false;
                 }
-                if (document.getElementById('BDV20').checked) {
-                    finalText += 'Lat-Long: ';
-                    finalText += document.getElementById('lat_long_reroute').value.trim() + ', ';
-                    document.getElementById('lat_long_reroute').value='';
-                    document.getElementById('BDV20').checked = false;
+                if (document.getElementById('NEW1').checked) {
+                    finalText += document.getElementById('NEW1').value + ', ';
+                    document.getElementById('NEW1').checked = false;
                 }
                 if (document.getElementById('BDV21').checked) {
                     finalText += document.getElementById('BDV21').value + ', ';
@@ -165,6 +163,12 @@ function otherShow() {
                 if (document.getElementById('BDV23').checked) {
                     finalText += document.getElementById('BDV23').value + ', ';
                     document.getElementById('BDV23').checked = false;
+                }
+                if (document.getElementById('BDV20').checked) {
+                    finalText += 'TGI Lat-Long: ';
+                    finalText += document.getElementById('lat_long').value.trim() + ', ';
+                    document.getElementById('lat_long').value='';
+                    document.getElementById('BDV20').checked = false;
                 }
             }tripShow();//To close the collapsible checkbox
 
