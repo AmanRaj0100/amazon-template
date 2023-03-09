@@ -59,6 +59,19 @@ function otherShow() {
     }
 }
 
+        //--------------------------------------------------------------------------------------------------------
+                //Adding Validation for BB Image Checked
+                function disableCheckbox() {
+                    document.getElementById("BDV3").checked = false;
+                    document.getElementById("BDV3").disabled = true;
+                }
+
+                function enableCheckbox() {
+                    document.getElementById("BDV3").disabled = false;
+                }
+
+        //--------------------------------------------------------------------------------------------------------
+
         //---------------------------------------------------------------------------------------
         // This is code for opening the text-area under Lat-Long on Re-route
         const checkbox = document.getElementById('BDV20');
