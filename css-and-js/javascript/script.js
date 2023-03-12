@@ -60,17 +60,39 @@ function otherShow() {
 }
 
         //--------------------------------------------------------------------------------------------------------
+        //Adding Validation for Trip Diver Checked
+        function disableTripCheckbox() {
+            document.getElementById("BDV22").checked = false;
+            document.getElementById("BDV22").disabled = true;
+            document.getElementById("BDV23").checked = false;
+            document.getElementById("BDV23").disabled = true;
+            document.getElementById("NEW1").checked = false;
+            document.getElementById("NEW1").disabled = true;
+            document.getElementById("BDV20").checked = false;
+            document.getElementById("BDV20").disabled = true;
+        }
+
+        function enableTripCheckbox() {
+            document.getElementById("BDV22").disabled = false;
+            document.getElementById("BDV23").disabled = false;
+            document.getElementById("NEW1").disabled = false;
+            document.getElementById("BDV20").disabled = false;
+        }
+
+        //--------------------------------------------------------------------------------------------------------
+
+        //--------------------------------------------------------------------------------------------------------
                 //Adding Validation for BB Image Checked
-                function disableCheckbox() {
+                function disableBBCheckbox() {
                     document.getElementById("BDV3").checked = false;
                     document.getElementById("BDV3").disabled = true;
                 }
 
-                function enableCheckbox() {
+                function enableBBCheckbox() {
                     document.getElementById("BDV3").disabled = false;
                 }
 
-        //--------------------------------------------------------------------------------------------------------
+                //--------------------------------------------------------------------------------------------------------
 
         //---------------------------------------------------------------------------------------
         // This is code for opening the text-area under Lat-Long on Re-route

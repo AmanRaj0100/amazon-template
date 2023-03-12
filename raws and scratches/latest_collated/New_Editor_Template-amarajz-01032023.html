@@ -138,7 +138,7 @@ Date:24-02-2023 -->
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
                 <span class="navbar-brand mb-0 h1">Editor Template</span>
-                <span class="navbar-text"><b>Version_1 : </b>2023-03-09</span>
+                <span class="navbar-text"><b>Version_2 : </b>2023-03-13</span>
             </div>
         </nav>
 
@@ -158,14 +158,14 @@ Date:24-02-2023 -->
                         <form id="BDIPF">
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="BDV19" name="BDV" value="Trip Diver Link Present">
+                                <input class="form-check-input" type="radio" id="BDV19" name="BDV" onclick="enableTripCheckbox()" value="Trip Diver Link Present">
                                 <label class="form-check-label" for="BDV19">
                                     <a> Trip Diver Link Present </a> </input>
                                 </label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="BDV21" name="BDV" value="Trip Diver Link Not Present">
+                                <input class="form-check-input" type="radio" id="BDV21" name="BDV" onclick="disableTripCheckbox()" value="Trip Diver Link Not Present">
                                 <label class="form-check-label" for="BDV21">
                                     <a> Trip Diver Link Not Present </a> </input>
                                 </label>
@@ -221,14 +221,14 @@ Date:24-02-2023 -->
                         <form id="BDIPF">
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="BDV1" name="BDV" onclick="enableCheckbox()" value="BB Image Present">
+                                <input class="form-check-input" type="radio" id="BDV1" name="BDV" onclick="enableBBCheckbox()" value="BB Image Present">
                                 <label class="form-check-label" for="BDV1">
                                     <a> BB Image Present </a> </input>
                                 </label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" id="BDV2" name="BDV" onclick="disableCheckbox()" value="BB Image Not Present">
+                                <input class="form-check-input" type="radio" id="BDV2" name="BDV" onclick="disableBBCheckbox()" value="BB Image Not Present">
                                 <label class="form-check-label" for="BDV2">
                                     <a> BB Image Not Present </a> </input>
                                 </label>
@@ -547,13 +547,36 @@ Date:24-02-2023 -->
             <script>
 
                 //--------------------------------------------------------------------------------------------------------
+                //Adding Validation for Trip Diver Checked
+                function disableTripCheckbox() {
+                    document.getElementById("BDV22").checked = false;
+                    document.getElementById("BDV22").disabled = true;
+                    document.getElementById("BDV23").checked = false;
+                    document.getElementById("BDV23").disabled = true;
+                    document.getElementById("NEW1").checked = false;
+                    document.getElementById("NEW1").disabled = true;
+                    document.getElementById("BDV20").checked = false;
+                    document.getElementById("BDV20").disabled = true;
+                }
+
+                function enableTripCheckbox() {
+                    document.getElementById("BDV22").disabled = false;
+                    document.getElementById("BDV23").disabled = false;
+                    document.getElementById("NEW1").disabled = false;
+                    document.getElementById("BDV20").disabled = false;
+                }
+
+                //--------------------------------------------------------------------------------------------------------
+
+
+                //--------------------------------------------------------------------------------------------------------
                 //Adding Validation for BB Image Checked
-                function disableCheckbox() {
+                function disableBBCheckbox() {
                     document.getElementById("BDV3").checked = false;
                     document.getElementById("BDV3").disabled = true;
                 }
 
-                function enableCheckbox() {
+                function enableBBCheckbox() {
                     document.getElementById("BDV3").disabled = false;
                 }
 
