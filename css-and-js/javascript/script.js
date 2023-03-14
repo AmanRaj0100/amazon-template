@@ -70,6 +70,7 @@ function otherShow() {
             document.getElementById("NEW1").disabled = true;
             document.getElementById("BDV20").checked = false;
             document.getElementById("BDV20").disabled = true;
+            document.getElementById('lat_long').value='';
         }
 
         function enableTripCheckbox() {
