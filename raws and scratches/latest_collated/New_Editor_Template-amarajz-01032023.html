@@ -172,7 +172,7 @@ Date:24-02-2023 -->
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="BDV22" name="BDV" value="No Results of the Sub-Route">
+                                <input class="form-check-input" type="checkbox" id="BDV22" name="BDV" onclick="checkNoResults(this)" value="No Results of the Sub-Route">
                                 <label class="form-check-label" for="BDV22">
                                     <a> No Results of the Sub-Route </a> </input>
                                 </label>
@@ -561,10 +561,35 @@ Date:24-02-2023 -->
                 }
 
                 function enableTripCheckbox() {
-                    document.getElementById("BDV22").disabled = false;
-                    document.getElementById("BDV23").disabled = false;
-                    document.getElementById("NEW1").disabled = false;
-                    document.getElementById("BDV20").disabled = false;
+                    const noResultsCheckbox = document.getElementById("BDV22");
+                    if(noResultsCheckbox.checked){
+                        checkNoResults();
+                    }
+                    else {
+                        document.getElementById("BDV22").disabled = false;
+                        document.getElementById("BDV23").disabled = false;
+                        document.getElementById("NEW1").disabled = false;
+                        document.getElementById("BDV20").disabled = false;
+                    }
+                }
+
+                function checkNoResults() {
+                    const noResultsCheckbox = document.getElementById("BDV22");
+                        
+                        if(noResultsCheckbox.checked) {
+                            document.getElementById("BDV23").checked = false;
+                            document.getElementById("BDV23").disabled = true;
+                            document.getElementById("NEW1").checked = false;
+                            document.getElementById("NEW1").disabled = true;
+                            document.getElementById("BDV20").checked = false;
+                            document.getElementById("BDV20").disabled = true;
+                            document.getElementById('lat_long').value='';
+                        }
+                        else {
+                            document.getElementById("BDV23").disabled = false;
+                            document.getElementById("NEW1").disabled = false;
+                            document.getElementById("BDV20").disabled = false;
+                        }
                 }
 
                 //--------------------------------------------------------------------------------------------------------

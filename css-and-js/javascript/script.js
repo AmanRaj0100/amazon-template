@@ -74,26 +74,51 @@ function otherShow() {
         }
 
         function enableTripCheckbox() {
-            document.getElementById("BDV22").disabled = false;
-            document.getElementById("BDV23").disabled = false;
-            document.getElementById("NEW1").disabled = false;
-            document.getElementById("BDV20").disabled = false;
+            const noResultsCheckbox = document.getElementById("BDV22");
+            if(noResultsCheckbox.checked){
+                checkNoResults();
+            }
+            else {
+                document.getElementById("BDV22").disabled = false;
+                document.getElementById("BDV23").disabled = false;
+                document.getElementById("NEW1").disabled = false;
+                document.getElementById("BDV20").disabled = false;
+            }
+        }
+
+        function checkNoResults() {
+            const noResultsCheckbox = document.getElementById("BDV22");
+                
+                if(noResultsCheckbox.checked) {
+                    document.getElementById("BDV23").checked = false;
+                    document.getElementById("BDV23").disabled = true;
+                    document.getElementById("NEW1").checked = false;
+                    document.getElementById("NEW1").disabled = true;
+                    document.getElementById("BDV20").checked = false;
+                    document.getElementById("BDV20").disabled = true;
+                    document.getElementById('lat_long').value='';
+                }
+                else {
+                    document.getElementById("BDV23").disabled = false;
+                    document.getElementById("NEW1").disabled = false;
+                    document.getElementById("BDV20").disabled = false;
+                }
         }
 
         //--------------------------------------------------------------------------------------------------------
 
         //--------------------------------------------------------------------------------------------------------
-                //Adding Validation for BB Image Checked
-                function disableBBCheckbox() {
-                    document.getElementById("BDV3").checked = false;
-                    document.getElementById("BDV3").disabled = true;
-                }
+        //Adding Validation for BB Image Checked
+        function disableBBCheckbox() {
+            document.getElementById("BDV3").checked = false;
+            document.getElementById("BDV3").disabled = true;
+        }
 
-                function enableBBCheckbox() {
-                    document.getElementById("BDV3").disabled = false;
-                }
+        function enableBBCheckbox() {
+            document.getElementById("BDV3").disabled = false;
+        }
 
-                //--------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------
 
         //---------------------------------------------------------------------------------------
         // This is code for opening the text-area under Lat-Long on Re-route
